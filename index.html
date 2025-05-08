@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+            margin-top: 3rem;
+        }
+
+        .w-50 {
+            width: calc(50% - 30px);
+            background-color: #eee;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .w-100 {
+            width: calc(100% - 30px);
+            background-color: #eee;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .mojoodi-text {
+            display: inline-block;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <div class="w-50">
+            <h2>واریزی</h2>
+            <input type="number" class="variz-input" />
+            <small>تومان</small>
+            <br /><br />
+            <button class="variz-btn">ثبت واریز</button>
+        </div>
+        <div class="w-50">
+            <h2>برداشت</h2>
+            <input type="number" class="bardasht-input" />
+            <small>تومان</small>
+            <br /><br />
+            <button class="bardasht-btn">ثبت برداشت</button>
+        </div>
+
+        <div class="w-100">
+            <h4>موجودی حساب</h4>
+            <p class="mojoodi-text">0</p>
+            <small>تومان</small>
+        </div>
+    </div>
+
+    <script>
+        // get inputs from html
+        let varizInput = document.querySelector(".variz-input")
+        let bardashtInput = document.querySelector(".bardasht-input")
+
+        // get buttons from html
+        let varizBtn = document.querySelector(".variz-btn");
+        let bardashtBtn = document.querySelector(".bardasht-btn");
+
+        // store value
+        let kifePool = 0;
+        let mojoodiText = document.querySelector(".mojoodi-text");
+
+        // variz onclick
+        varizBtn.onclick = function () {
+            kifePool += Number(varizInput.value);
+            varizInput.value = "";
+            mojoodiText.textContent = kifePool;
+        }
+
+        // bardasht onclick
+        bardashtBtn.onclick = function () {
+            if (kifePool < Number(bardashtInput.value)) {
+                alert("موجودی شما کافی نیست!");
+                return;
+            }
+
+            kifePool -= Number(bardashtInput.value);
+            bardashtInput.value = "";
+            mojoodiText.textContent = kifePool;
+        }
+
+    </script>
+</body>
+
+</html>
