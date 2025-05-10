@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wallete</title>
 
     <style>
         * {
@@ -12,7 +11,6 @@
             margin: 0;
             padding: 0;
         }
-
         .d-flex {
             display: flex;
             align-items: center;
@@ -21,14 +19,15 @@
             flex-wrap: wrap;
             max-width: 1000px;
             margin: auto;
-            margin-top: 3rem;
+            margin-bottom: 3rem;
         }
 
         .w-50 {
-            width: calc(50% - 30px);
+            width: calc(50% -30px);
             background-color: #eee;
             padding: 1rem;
             border-radius: 1rem;
+            margin: 40px;
         }
 
         .w-100 {
@@ -45,8 +44,8 @@
             font-weight: bold;
         }
     </style>
-</head>
 
+</head>
 <body>
     <div class="d-flex">
         <div class="w-50">
@@ -70,28 +69,23 @@
             <small>تومان</small>
         </div>
     </div>
-
     <script>
-        // get inputs from html
-        let varizInput = document.querySelector(".variz-input")
+         let varizInput = document.querySelector(".variz-input")
         let bardashtInput = document.querySelector(".bardasht-input")
 
-        // get buttons from html
         let varizBtn = document.querySelector(".variz-btn");
         let bardashtBtn = document.querySelector(".bardasht-btn");
 
-        // store value
+
         let kifePool = 0;
         let mojoodiText = document.querySelector(".mojoodi-text");
 
-        // variz onclick
         varizBtn.onclick = function () {
             kifePool += Number(varizInput.value);
             varizInput.value = "";
             mojoodiText.textContent = kifePool;
         }
 
-        // bardasht onclick
         bardashtBtn.onclick = function () {
             if (kifePool < Number(bardashtInput.value)) {
                 alert("موجودی شما کافی نیست!");
@@ -104,6 +98,9 @@
         }
 
     </script>
-</body>
+        
+    </script>
 
+
+</body>
 </html>
